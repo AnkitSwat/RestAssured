@@ -85,3 +85,5 @@ public class ParsingJSONResponseData {
 		Assert.assertEquals(totalPrice,11209.5);
 	}
 }
+
+// http://restapi.adequateshop.com/swagger/ui/index
