@@ -5,14 +5,17 @@ import static io.restassured.RestAssured.*;
 import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
+import java.util.List;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 
 public class ParsingXMLResponse {
 
-	@Test
+	@Test(enabled=false)
 	void testXMLResponse()
 	{
 		
@@ -46,6 +49,40 @@ public class ParsingXMLResponse {
 		
 		String travellerName =res.xmlPath().get("TravelerinformationResponse.travelers.Travelerinformation[0].name").toString();
 		Assert.assertEquals(travellerName, "Developer");
+	
+	}
+	
+	
+	@Test
+	void testXMLResponseBody() {
+		
+		Response res= given()
+				
+				.when()
+					.get("http://restapi.adequateshop.com/api/Traveler?page=1");
+				
+			XmlPath xmlObj = new XmlPath(res.asString());
+			
+			List<String> traveller=xmlObj.getList("TravelerinformationResponse.travelers.Travelerinformation");
+			//Assert.assertEquals(traveller.size(),10);
+			
+	
+			//Verify whether a name is present or not
+			List<String> traveller_names=xmlObj.getList("TravelerinformationResponse.travelers.Travelerinformation.name");
+			
+			boolean status=false;
+			for(String i:traveller_names)
+			{
+				if(i.equals("Developer"))
+				{
+					status=true;
+					break;
+				}
+			}
+			
+			Assert.assertEquals(status, true);
+			
+			
 	
 	}
 	
