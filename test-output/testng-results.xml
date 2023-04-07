@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="3" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-03-28T21:44:19 IST" name="Default suite" finished-at="2023-03-28T21:44:20 IST" duration-ms="1409">
+  <suite started-at="2023-04-08T00:37:02 IST" name="Default suite" finished-at="2023-04-08T00:37:03 IST" duration-ms="208">
     <groups>
     </groups>
-    <test started-at="2023-03-28T21:44:19 IST" name="Default test" finished-at="2023-03-28T21:44:20 IST" duration-ms="1409">
-      <class name="Day5.FileUploadAndDownload">
-        <test-method signature="fileDownload()[pri:0, instance:Day5.FileUploadAndDownload@40ef3420]" started-at="2023-03-28T21:44:19 IST" name="fileDownload" finished-at="2023-03-28T21:44:20 IST" duration-ms="940" status="PASS">
+    <test started-at="2023-04-08T00:37:02 IST" name="Default test" finished-at="2023-04-08T00:37:03 IST" duration-ms="208">
+      <class name="Day6.SerializationDeserialization">
+        <test-method signature="convertJson2Pojo()[pri:0, instance:Day6.SerializationDeserialization@441772e]" started-at="2023-04-08T00:37:02 IST" name="convertJson2Pojo" finished-at="2023-04-08T00:37:03 IST" duration-ms="164" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- fileDownload -->
-        <test-method signature="singleFileUpload()[pri:0, instance:Day5.FileUploadAndDownload@40ef3420]" started-at="2023-03-28T21:44:20 IST" name="singleFileUpload" finished-at="2023-03-28T21:44:20 IST" duration-ms="439" status="PASS">
+        </test-method> <!-- convertJson2Pojo -->
+        <test-method signature="convertPojo2Json()[pri:0, instance:Day6.SerializationDeserialization@441772e]" started-at="2023-04-08T00:37:03 IST" name="convertPojo2Json" finished-at="2023-04-08T00:37:03 IST" duration-ms="12" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- singleFileUpload -->
-      </class> <!-- Day5.FileUploadAndDownload -->
+        </test-method> <!-- convertPojo2Json -->
+      </class> <!-- Day6.SerializationDeserialization -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
