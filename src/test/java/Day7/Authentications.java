@@ -6,7 +6,7 @@ import static io.restassured.RestAssured.*;
 public class Authentications {
 
 	
-	@Test(priority=1)
+	@Test(enabled=false,priority=1)
 	void testBasicAuthentication()
 	{
 		
@@ -22,7 +22,7 @@ public class Authentications {
 				.log().all();
 	}
 	
-	@Test(priority=2)
+	@Test(enabled=false,priority=2)
 	void testDigestAuthentication()
 	{
 		
@@ -39,7 +39,7 @@ public class Authentications {
 	}
 	
 	
-	@Test(priority=3)
+	@Test(enabled=false,priority=3)
 	void testPreemptiveAuthentication()
 	{
 		
@@ -57,7 +57,7 @@ public class Authentications {
 	
 	
 	
-	@Test(priority=4)
+	@Test(enabled=false,priority=4)
 	void testBearerAuthentication()
 	{
 		
@@ -76,7 +76,7 @@ public class Authentications {
 	}
 	
 	
-	@Test(priority=5)
+	@Test(enabled=false,priority=5)
 	void testOauth2Authentication()
 	{
 		
@@ -91,6 +91,39 @@ public class Authentications {
 		.log().all();			
 			
 		
+	}
+	
+	@Test()
+	void testAPIKeyAuthentication()
+	{
+		
+		/* Method 1
+		given()
+			.queryParam("appid", "6e4016fb82e7b97cdaa281a702c47a5e")
+			
+		.when()
+			.get("https://api.openweathermap.org/data/2.5/forecast/daily?q=Delhi&units=metric&cnt=7")
+			
+		.then()
+			.statusCode(200)
+			.log().all();
+			*/
+		
+		//method2
+		
+		given()
+			.queryParam("appid", "6e4016fb82e7b97cdaa281a702c47a5e")
+			.pathParam("mypath","/data/2.5/forecast/daily")
+			.queryParam("q","Delhi")
+			.queryParam("cnt", "7")
+			
+		.when()
+			.get("https://api.openweathermap.org/{mypath}")
+			
+		.then()
+			.statusCode(200)
+			.log().all();
+			
 	}
 	
 }
