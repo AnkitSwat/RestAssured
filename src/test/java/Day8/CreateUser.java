@@ -1,20 +1,18 @@
 package Day8;
 
+import static io.restassured.RestAssured.given;
+
 import org.json.JSONObject;
+import org.testng.ITestContext;
 import org.testng.annotations.Test;
+
 import com.github.javafaker.Faker;
-
-import io.restassured.response.Response;
-
-import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
 
 public class CreateUser {
 
 	
 	@Test
-	void test_CreateUser()
+	void test_CreateUser(ITestContext context)
 	{
 		Faker faker=new Faker();
 		
@@ -29,7 +27,7 @@ public class CreateUser {
 		
 		
 	int id=given()
-			.header("Authorization","Bearer "+bearerToken)
+			.headers("Authorization","Bearer "+bearerToken)
 			.contentType("application/json")
 			.body(data.toString())
 			
@@ -39,7 +37,7 @@ public class CreateUser {
 	
 	System.out.println("ID value is: "+id);
 			
-		
+		context.getSuite().setAttribute("user_id", id);
 		
 	}
 	

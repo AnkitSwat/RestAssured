@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+  <test thread-count="5" name="Test_Create">
+    <classes>
+   	  <class name="Day8.CreateUser"/> 
+    </classes>
+  </test> <!-- Test -->
+  
+    <test thread-count="5" name="Test_CreateGet">
+    <classes>
+   	  <class name="Day8.CreateUser"/>
+   	  <class name="Day8.GetUser"/>   
+    </classes>
+  </test> 
+  
+    <test thread-count="5" name="Test_CreateGetUpdate">
+    <classes>
+   	  <class name="Day8.CreateUser"/>
+   	  <class name="Day8.GetUser"/>
+   	  <class name="Day8.UpdateUser"/>   
+    </classes>
+  </test> 
+  
+    <test thread-count="5" name="Test_CreateGetUpdateDelete">
+    <classes>
+   	  <class name="Day8.GetUser"/>
+   	  <class name="Day8.UpdateUser"/>
+      <class name="Day8.DeleteUser"/>    
+    </classes>
+  </test> 
+  
+</suite> <!-- Suite -->
